@@ -1,10 +1,28 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import CourseCard from '../CourseCard/CourseCard';
 
+import './Home.css'
 const Home = () => {
+    const getCourses = useLoaderData();
     return (
-        <div>
-            <h2>This is home</h2>
-        </div>
+        <Container className='homeContainer'>
+            <div className='h-50 w-100 bg-secondary text-white rounded'><p className='text-center fs-2 fw-bolder'>Welcome to Learn </p></div>
+            <Row>
+
+                {
+                    getCourses.map(course => <CourseCard
+                        key={course.id} course={course}>
+
+                    </CourseCard>)
+                }
+            </Row>
+            <h3 className='text-start'>Explore the courses:</h3>
+            {/* <h4>Total courses: {getCourses.length}</h4> */}
+
+
+        </Container>
     );
 };
 
