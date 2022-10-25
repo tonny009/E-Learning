@@ -6,12 +6,14 @@ import Container from 'react-bootstrap/Container';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import './CourseDetails.css'
+import { Link } from 'react-router-dom';
 
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     // console.log(courseDetails[0].name)
     const name = courseDetails[0].name;
+    const id = courseDetails[0].id;
     const ratings = courseDetails[0].ratings;
     const image = courseDetails[0].image;
     const enrolled = courseDetails[0].enrolled;
@@ -34,7 +36,7 @@ const CourseDetails = () => {
                                     <p>Ratings: {ratings}</p>
                                     <p>Total Enrolled: {enrolled}</p>
                                 </Card.Text>
-                                <Button variant="success">Get Premium Access</Button>
+                                <Button variant="success"><Link to={`/checkout/${id}`}>Get Premium Access</Link></Button>
                             </Card.Body>
                         </Card>
                     </div>

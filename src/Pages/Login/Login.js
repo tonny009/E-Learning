@@ -17,7 +17,7 @@ const Login = () => {
     const { providerLogin, signIn, setLoading } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
 
-    // const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -31,7 +31,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate('/')
+                navigate(from, { replace: true })
                 // if (user.emailVerified) {
                 //     navigate(from, { replace: true });
                 // }
@@ -52,6 +52,7 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true })
                 console.log(user)
             })
             .catch(error => console.error())
