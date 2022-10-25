@@ -1,0 +1,10 @@
+.header-btn-link {
+    color: rgb(24, 21, 18);
+    text-decoration: none;
+}
+
+.header-btns {
+    background-color: rgb(201, 188, 245);
+    border: 0px none;
+    margin-right: 4px;
+}

@@ -4,7 +4,8 @@ import { useLoaderData } from 'react-router-dom';
 import CourseCard from '../CourseCard/CourseCard';
 import LeftSide from '../../LeftSide/LeftSide'
 
-import './Home.css'
+import './Home.css';
+
 const Home = () => {
     const getCourses = useLoaderData();
     return (
@@ -19,7 +20,7 @@ const Home = () => {
                 <Col lg="10">
                     <Row>
                         {
-                            getCourses.map(course => <CourseCard
+                            getCourses?.map(course => <CourseCard
                                 key={course.id} course={course}>
 
                             </CourseCard>)
