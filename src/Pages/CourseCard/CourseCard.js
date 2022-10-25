@@ -7,15 +7,18 @@ import './CourseCard.css'
 const CourseCard = ({ course }) => {
     const { id, name, ratings, Course_description, enrolled, image } = course;
     return (
-        <Col lg="4" >
+        <Col lg="6" >
             <Card className="text-center cardSize mb-4 mr-4">
                 <Card.Img className='card-img' variant="top" src={image} />
-
-
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                    <Card.Text>
-                        With supporting text below as a natural lead-in to additional content.
+                    <Card.Text >
+                        {
+                            Course_description.length > 150 ?
+                                <p className='text-left'>{Course_description.slice(0, 150) + '...'}</p>
+                                :
+                                <p>{Course_description}</p>
+                        }
                     </Card.Text>
 
                 </Card.Body>
