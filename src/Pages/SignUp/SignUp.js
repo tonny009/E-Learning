@@ -58,6 +58,7 @@ const SignUp = () => {
     return (
         <Container>
             <div className='w-75 mb-5' >
+                <div className='form-title'><h3>Sign Up Here</h3></div>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Your Name</Form.Label>

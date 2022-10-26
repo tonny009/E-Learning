@@ -1,0 +1,20 @@
+.btn-group-login {
+    background-color: rgb(212, 212, 233);
+    width: 400px;
+    height: auto;
+    padding-top: 20px;
+    /* padding-bottom: 20px; */
+    padding-left: 100px;
+    border-radius: 5px;
+}
+
+.login-others-btn {
+    margin-bottom: 10px;
+}
+
+.form-title {
+    background-color: rgb(212, 212, 233);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}

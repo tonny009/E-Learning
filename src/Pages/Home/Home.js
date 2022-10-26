@@ -27,13 +27,7 @@ const Home = () => {
                         }
                     </Row>
                 </Col>
-
-
             </Row>
-            <h3 className='text-start'>Explore the courses:</h3>
-            {/* <h4>Total courses: {getCourses.length}</h4> */}
-
-
         </Container>
     );
 };

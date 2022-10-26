@@ -8,6 +8,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import Form from 'react-bootstrap/Form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './Login.css'
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -60,15 +61,17 @@ const Login = () => {
     }
     return (
         <Container className='d-lg-flex justify-content-between mt-5 '>
-            <div className='w-75 mb-5' >
+            <div className='w-50 mb-5' >
+                <div className='form-title'><h3> Log In Form:</h3></div>
+
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label><strong>Email address</strong></Form.Label>
                         <Form.Control name="email" type="email" placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label><strong>Password</strong></Form.Label>
                         <Form.Control name="password" type="password" placeholder="Password" required />
                     </Form.Group>
                     <Button variant="primary" type="submit" className='mb-4'>
@@ -83,10 +86,11 @@ const Login = () => {
                 </Form>
             </div>
 
-            <div>
+            <div className='btn-group-login'>
+
                 <ButtonGroup vertical>
-                    <Button onClick={handleGoogleSignIn} variant="outline-primary"><FaGoogle></FaGoogle> Log in With Google</Button>
-                    <Button variant="outline-primary"><FaGithub></FaGithub>Log in With Github</Button>
+                    <Button className='login-others-btn' onClick={handleGoogleSignIn} variant="outline-primary"><FaGoogle></FaGoogle> Log in With Google</Button>
+                    <Button className='login-others-btn' variant="outline-primary"><FaGithub></FaGithub>Log in With Github</Button>
                 </ButtonGroup>
 
             </div>

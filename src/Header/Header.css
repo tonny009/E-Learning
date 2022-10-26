@@ -12,13 +12,16 @@
     height: 40px;
     border-radius: 5px;
     color: black;
-
-
 }
 
 .user-icon {
-
     font-size: x-large;
     margin-right: 20px;
     margin-top: 10px;
+}
+
+.logo-img {
+    height: 30px;
+    margin-right: 10px;
+
 }
