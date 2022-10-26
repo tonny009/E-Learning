@@ -26,8 +26,6 @@ const CourseCard = ({ course }) => {
                     <div className='d-flex justify-content-between '>
                         <div><p>Ratings: {ratings}</p></div>
                         <div> <p>Enrolled: {enrolled}</p></div>
-
-
                     </div>
 
                 </Card.Footer>

@@ -4,3 +4,13 @@
     padding-bottom: 7px;
     padding-top: 7px;
 }
+
+.not-found {
+    text-align: center;
+    text-shadow: 9rem;
+    font-weight: 800;
+    font-size: xx-large;
+    background-color: rgb(199, 125, 125);
+    padding: 9px;
+    border-radius: 4px;
+}

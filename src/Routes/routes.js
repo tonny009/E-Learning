@@ -9,6 +9,7 @@ import Login from '../Pages/Login/Login'
 import SignUp from '../Pages/SignUp/SignUp'
 import Checkout from "../Pages/Checkout/Checkout";
 import PrivateRoute from "./PrivateRoute";
+import Faq from "../Pages/FAQ/Faq";
 
 
 export const routes = createBrowserRouter([
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/new-courses')
             },
             {
+                path: 'faq',
+                element: <Faq></Faq>
+            },
+            {
                 path: 'blog',
                 element: <Blog></Blog>
             },
@@ -52,6 +57,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <Profile></Profile>
+            },
+            {
+                path: '*',
+                element: <div className='not-found w-75 h-25 container'>Sorry ! This page is not found(404)</div>
             }
 
         ]

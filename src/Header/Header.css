@@ -1,10 +1,24 @@
 .header-btn-link {
     color: rgb(24, 21, 18);
     text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
 }
 
-.header-btns {
-    background-color: rgb(201, 188, 245);
-    border: 0px none;
-    margin-right: 4px;
+.headerButton {
+    background-color: rgb(187, 172, 236);
+    border: 1 px solid white;
+    margin-right: 8px;
+    height: 40px;
+    border-radius: 5px;
+    color: black;
+
+
+}
+
+.user-icon {
+
+    font-size: x-large;
+    margin-right: 20px;
+    margin-top: 10px;
 }

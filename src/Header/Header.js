@@ -34,6 +34,7 @@ const Header = () => {
                     <Nav className="me-auto">
 
                         <Nav.Link href="/courses">Courses</Nav.Link>
+                        <Nav.Link href="/faq">FAQ</Nav.Link>
                         <Nav.Link href="/blog">Blog</Nav.Link>
 
                     </Nav>
@@ -53,22 +54,24 @@ const Header = () => {
                                                 data-toggle="tooltip" data-placement="top" title={user?.displayName}
                                             >
                                             </Image>
-                                            : <FaUser data-toggle="tooltip" data-placement="top" title={user?.displayName} ></FaUser>
+                                            : <FaUser className='user-icon' data-toggle="tooltip" data-placement="top" title={user?.displayName} ></FaUser>
                                         }
                                     </Link>
-                                    <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                                    <button className='headerButton' onClick={handleLogOut}>Log Out</button>
+
                                 </>
                                 :
                                 <>
-                                    <Button className='header-btns'><Link className='header-btn-link' to='/login'>Login</Link></Button>
-                                    <Button className='header-btns'><Link className='header-btn-link' to='/register'>Register</Link></Button>
+                                    <button className='headerButton'><Link className='header-btn-link' to='/login'>Login</Link></button>
+
+                                    <button className='headerButton'><Link className='header-btn-link' to='/register'>Register</Link></button>
                                 </>
                         }
 
                     </Nav>
 
                     {/* Toggle dark-light button */}
-                    <button className='rounded' onClick={() => handleChange()}>{changeText ? "Dark Theme" : "Light Theme"}</button>
+                    <button className='headerButton' onClick={() => handleChange()}>{changeText ? "Dark Theme" : "Light Theme"}</button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
