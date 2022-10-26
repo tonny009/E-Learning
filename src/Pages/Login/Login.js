@@ -51,7 +51,7 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-        providerLogin(githubProvider)
+        providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true })
@@ -61,8 +61,8 @@ const Login = () => {
 
     }
 
-    const handleGithubSignIn = () => {
-        providerLogin(googleProvider)
+    const handleGithubSignIn = (githubProvider) => {
+        providerLogin()
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true })

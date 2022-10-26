@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import './Checkout.css'
 
 const Checkout = () => {
     const { user } = useContext(AuthContext)
@@ -9,19 +10,18 @@ const Checkout = () => {
     const name = courseCheckout[0].name;
     const ratings = courseCheckout[0].ratings;
     const image = courseCheckout[0].image;
-    const enrolled = courseCheckout[0].enrolled;
+    const courseLink = courseCheckout[0].courseLink;
+    console.log(courseLink)
     const Course_description = courseCheckout[0].Course_description;
     return (
-        <div>
+        <div className='checkout-container'>
             <Container>
-                <div ><h3>Congratulations {user?.displayName}! Now You got the access ....</h3></div>
+                <div ><h3>Congratulations <span className='name-show'>{user?.displayName}!</span>  Now You got the access ....</h3></div>
                 <div>
                     <>
-                        <p>Course Description : {Course_description}</p>
-                        <p>Video Link:  <a href="https://www.udemy.com/course/1-hour-html/"> Start Class</a> </p>
+                        <p><strong>Course Description :</strong> {Course_description}</p>
+                        <p><strong>Video Link: </strong> <a className='crs-video-link' href={courseLink}> Start Class</a> </p>
                     </>
-
-
                 </div>
 
 
