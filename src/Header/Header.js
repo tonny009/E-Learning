@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../Contexts/AuthProvider';
 import { Tooltip } from 'react-bootstrap';
@@ -14,6 +14,7 @@ import logo from '../assests/logo.jpg'
 
 
 const Header = () => {
+    const navigate = useNavigate();
     const { user, logOut } = useContext(AuthContext);
     let [changeText, setChangeText] = useState(true);
 
@@ -22,7 +23,7 @@ const Header = () => {
     }
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => { navigate('/') })
             .catch(error => console.error(error))
     }
 
@@ -71,9 +72,12 @@ const Header = () => {
                         }
 
                     </Nav>
+                    <Nav>
+                        {/* Toggle dark-light button */}
+                        <button className='headerButton' onClick={() => handleChange()}>{changeText ? "Dark Theme" : "Light Theme"}</button>
+                    </Nav>
 
-                    {/* Toggle dark-light button */}
-                    <button className='headerButton' onClick={() => handleChange()}>{changeText ? "Dark Theme" : "Light Theme"}</button>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>

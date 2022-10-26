@@ -18,3 +18,10 @@
 .pdf-button:hover {
     background-color: rgb(192, 223, 130);
 }
+
+.premium-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: larger;
+}
