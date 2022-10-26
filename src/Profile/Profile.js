@@ -11,8 +11,6 @@ const Profile = () => {
         <Container>
             <div className='profile'>
                 <div className='text-center pb-5 '><img src={user?.photoURL} alt="No User Picture " srcset="" /> </div>
-
-
                 <h2>Name: {user?.displayName}</h2>
                 <h2>Email: {user?.email}</h2>
             </div>

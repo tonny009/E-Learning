@@ -20,7 +20,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/new-courses')
+                loader: () => fetch('https://web-development-course-seven.vercel.app/new-courses')
             },
             {
                 path: 'login',
@@ -33,7 +33,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'courses',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/new-courses')
+                loader: () => fetch('https://web-development-course-seven.vercel.app/new-courses')
             },
             {
                 path: 'faq',
@@ -47,12 +47,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://web-development-course-seven.vercel.app/course-details/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://web-development-course-seven.vercel.app/course-details/${params.id}`)
             },
             {
                 path: '/profile',
