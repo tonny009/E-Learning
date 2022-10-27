@@ -43,7 +43,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error)
-                setError(error.message);
+                setError("Please Give a valid Password and email.");
             })
             .finally(() => {
                 setLoading(false);
@@ -57,7 +57,10 @@ const Login = () => {
                 navigate(from, { replace: true })
                 // console.log(user)
             })
-            .catch(error => console.error())
+            .catch(error => {
+                console.error()
+                setError(error.message);
+            })
 
     }
 
@@ -68,7 +71,9 @@ const Login = () => {
                 navigate(from, { replace: true })
                 console.log(user)
             })
-            .catch(error => console.error())
+            .catch(error => {
+                setError(error.message);
+            })
 
     }
     return (
@@ -89,9 +94,11 @@ const Login = () => {
                     <Button variant="primary" type="submit" className='mb-4'>
                         Login
                     </Button>
+                    <br></br>
                     <Form.Text className="text-danger">
-                        {error}
+                        <strong className='fs-5'>{error}</strong>
                     </Form.Text>
+
                     <Form.Text className="text-primary ">
                         <p><strong>Don't you have any account? Please <Link to='/register'>Sign Up</Link></strong></p>
                     </Form.Text>

@@ -7,6 +7,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 
 const SignUp = () => {
     const [error, setError] = useState('');
+    const [registerSuccess, setRegisterSuccess] = useState('');
     // const [accepted, setAccepted] = useState(false);
     const { createUser, updateUserProfile } = useContext(AuthContext);
 
@@ -17,21 +18,32 @@ const SignUp = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassword = form.ConfirmPassword.value;
         // console.log(name, photoURL, email, password);
 
-        createUser(email, password)
-            .then(result => {
-                const user = result.user;
-                setError('');
-                form.reset();
-                handleUpdateUserProfile(name, photoURL);
-                // handleEmailVerification();
-                // toast.success('Please verify your email address.')
-            })
-            .catch(e => {
-                console.error(e);
-                setError(e.message);
-            });
+        if (password === confirmPassword) {
+            createUser(email, password)
+                .then(result => {
+                    const user = result.user;
+                    setError('');
+                    setRegisterSuccess("Successfully Registered! ")
+                    form.reset();
+                    handleUpdateUserProfile(name, photoURL);
+                    // handleEmailVerification();
+                    // toast.success('Please verify your email address.')
+                })
+                .catch(e => {
+                    console.error(e);
+                    setRegisterSuccess('')
+                    setError(e.message);
+                });
+
+        }
+        else {
+            setError("Please Confirm your valid password!")
+        }
+
+
     }
 
     const handleUpdateUserProfile = (name, photoURL) => {
@@ -78,17 +90,20 @@ const SignUp = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name="password" type="password" placeholder="Password" required />
                     </Form.Group>
-                    {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check
-                            type="checkbox"
-                            onClick={handleAccepted}
-                            label={<>Accept Terms and conditions</>} />
-                    </Form.Group> */}
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control name="ConfirmPassword" type="password" placeholder="Confirm Password" required />
+                    </Form.Group>
+
                     <Button variant="primary" type="submit" className='mb-4'>
                         Register
                     </Button>
+                    <br></br>
                     <Form.Text className="text-danger">
-                        {error}
+                        <strong className='fs-5'>{error}</strong>
+                    </Form.Text>
+                    <Form.Text className="text-success">
+                        <strong className='fs-5'>{registerSuccess}</strong>
                     </Form.Text>
                     <Form.Text className="text-primary ">
                         <p><strong>Already have an account? Please <Link to='/login'>Log In</Link></strong></p>
